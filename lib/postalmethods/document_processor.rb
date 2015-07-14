@@ -9,7 +9,7 @@ module PostalMethods
      self.to_send = {} if self.to_send.nil?
 
      self.to_send[:extension] = doc.path.to_s.split('.').last
-     self.to_send[:bytes] = doc.read
+     self.to_send[:bytes] = File.read(doc)
      self.to_send[:name] = File.basename(doc.path)
      self.to_send[:file_obj] = doc
    end
