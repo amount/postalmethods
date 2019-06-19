@@ -7,7 +7,7 @@ module PostalMethods
   class Client
 
       require 'rubygems'
-      gem 'soap4r-ruby1.9'
+      gem 'soap4r-ng'
       require 'soap/rpc/driver'
       require 'soap/wsdlDriver'
       #require 'ruby-debug'
