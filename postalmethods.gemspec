@@ -29,9 +29,11 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<newgem>, [">= 1.2.1"])
       s.add_dependency(%q<hoe>, [">= 1.8.0"])
+      s.add_dependency('soap4r-ng', ['~> 2'])
     end
   else
     s.add_dependency(%q<newgem>, [">= 1.2.1"])
     s.add_dependency(%q<hoe>, [">= 1.8.0"])
+    s.add_dependency('soap4r-ng', ['~> 2'])
   end
 end
