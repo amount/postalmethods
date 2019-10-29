@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-# stub: postalmethods 1.1.3 ruby lib
+# stub: postalmethods 1.1.5 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "postalmethods"
-  s.version = "1.1.3"
+  s.version = "1.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
@@ -29,9 +29,11 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<newgem>, [">= 1.2.1"])
       s.add_dependency(%q<hoe>, [">= 1.8.0"])
+      s.add_dependency('soap4r-ng', ['~> 2'])
     end
   else
     s.add_dependency(%q<newgem>, [">= 1.2.1"])
     s.add_dependency(%q<hoe>, [">= 1.8.0"])
+    s.add_dependency('soap4r-ng', ['~> 2'])
   end
 end

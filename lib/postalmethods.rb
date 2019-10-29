@@ -2,12 +2,12 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 module PostalMethods
-  VERSION = '1.1.3'
+  VERSION = '1.1.5'
   
   class Client
 
       require 'rubygems'
-      gem 'soap4r-ruby1.9'
+      gem 'soap4r-ng'
       require 'soap/rpc/driver'
       require 'soap/wsdlDriver'
       #require 'ruby-debug'
