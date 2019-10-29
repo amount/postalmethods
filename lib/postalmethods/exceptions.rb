@@ -1,47 +1,50 @@
 module PostalMethods
 
-  class GenericCodeError < Exception
+  class BaseError < StandardError
+  end
+
+  class GenericCodeError < BaseError
     def initialize
       super("You have reached a code error in the ruby gem. Please report to the forums")
     end
   end
 
-  class NoCredentialsException < Exception
+  class NoCredentialsException < BaseError
     def initialize
       super("You have failed to provide any credentials (api key)")
     end
   end
-  
-  class NoPreparationException < Exception
+
+  class NoPreparationException < BaseError
     def initialize
       super("You must prepare the client first with @client.prepare!")
     end
   end
-  
-  class InvalidLetterIDsRange < Exception
+
+  class InvalidLetterIDsRange < BaseError
     def initialize
       super("You need to supply an array or a list of ids, comma seperated.")
     end
   end
-  
-  class NoConnectionError < Exception
+
+  class NoConnectionError < BaseError
     def initialize
       super("Error connecting to the API server. If you are sure you are online, Please call support.")
     end
   end
-  
+
   ## base api exception - stolen from Halcyon
   ## http://github.com/mtodd/halcyon/tree/master/LICENSE
-  
-  class APIException < Exception
+
+  class APIException < BaseError
     attr_accessor :status, :body
     def initialize(status, body)
       @status = status
       @body = body
       super "[#{@status}] #{@body}"
     end
-  end  
-  
+  end
+
   API_STATUS_CODES = {
     -3000 => "OK: Successfully received the request",
     -3001 => "This user is not authorized to access the specified item",
@@ -51,7 +54,7 @@ module PostalMethods
     -3020 => "The file specified is unavailable (it may still be being processed, please try later)",
     -3022 => "Cancellation Denied: The letter was physically processed and cannot be cancelled",
     -3113 => "Rejected: the city field contains more than 30 characters",
-    -3114 => "Rejected: the state field contains more than 30 characters", 
+    -3114 => "Rejected: the state field contains more than 30 characters",
     -3115 => "There was no data returned for your query",
     -3116 => "The specified letter (ID) does not exist in the system",
     -3117 => "Rejected: the company field contains more than 45 characters",
@@ -76,11 +79,11 @@ module PostalMethods
     -4010 => "The MinID field is empty or missing",
     -4011 => "The MaxID field is empty or missing",
   }
-  
+
   #--
   # Classify Status Codes
   #++
-  
+
   API_STATUS_CODES.to_a.each do |http_status|
     status, body = http_status
     class_eval <<-"end;"
@@ -92,6 +95,6 @@ module PostalMethods
       end
     end;
   end
-  
-  
+
+
 end
