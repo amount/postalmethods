@@ -12,7 +12,7 @@ require 'postalmethods'
 
 $VERBOSE = nil ##silence annoying warnings from soap4r
 
-PM_OPTS = {:api_key=>'1a7ba530-d926-4b17-aaae-2ea215ff25fd'}
+PM_OPTS = {:api_key=>'<PLACEHOLDER-FOR-API-KEY>'}
 
 # hash hacks to make hacking in specs easier
 class Hash
